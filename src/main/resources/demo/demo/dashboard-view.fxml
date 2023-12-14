@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import java.lang.String?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.effect.Glow?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<StackPane fx:id="mainStackPane" alignment="TOP_LEFT" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demo.demo.DashboardController">
+<StackPane fx:id="mainStackPane" alignment="TOP_LEFT" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demo.demo.DashboardController">
     <children>
         <BorderPane fx:id="mainBorderPane" minHeight="650.0" minWidth="1160.0" prefHeight="800.0" prefWidth="1160.0" styleClass="bg-info" StackPane.alignment="TOP_LEFT">
             <center>
@@ -33,7 +30,7 @@
                             <children>
                                 <VBox layoutY="338.0" maxWidth="60.0" minWidth="0.0" prefHeight="474.0" prefWidth="152.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="126.0">
                                     <children>
-                                        <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" maxWidth="376.0" minWidth="0.0"  prefHeight="43.0" prefWidth="200.0" ripplerFill="#1a6ee4" text="Home">
+                                        <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" maxWidth="376.0" minWidth="0.0" prefHeight="43.0" prefWidth="200.0" ripplerFill="#1a6ee4" text="Home">
                                             <padding>
                                                 <Insets bottom="10.0" left="20.0" right="10.0" top="15.0" />
                                             </padding>
@@ -49,7 +46,7 @@
                                                 <String fx:value="btn-default" />
                                             </styleClass>
                                         </JFXButton>
-                                        <JFXButton fx:id="btnReport" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#openMonthlyReportUI" graphicTextGap="20.0" maxWidth="383.0" minWidth="0.0" prefHeight="43.0" prefWidth="200.0" ripplerFill="#1a6ee4" text="Monthly Report Detail">
+                                        <JFXButton fx:id="btnReport" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" maxWidth="383.0" minWidth="0.0" onAction="#openMonthlyReportUI" prefHeight="43.0" prefWidth="200.0" ripplerFill="#1a6ee4" text="Monthly Report Detail">
                                             <VBox.margin>
                                                 <Insets />
                                             </VBox.margin>
@@ -68,23 +65,23 @@
                                                 <String fx:value="btn-default" />
                                             </styleClass>
                                         </JFXButton>
-                                        <JFXButton fx:id="btnImport" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" onAction="#openImportReportUI" maxWidth="382.0" minWidth="0.0"  prefHeight="43.0" prefWidth="200.0" ripplerFill="#1a6ee4" text="Import Attendance Report">
-                                            <padding>
-                                                <Insets bottom="10.0" left="20.0" right="10.0" top="15.0" />
-                                            </padding>
-                                            <graphic>
-                                                <FontAwesomeIconView glyphName="TOGGLE_DOWN" styleClass="glymph" />
-                                            </graphic>
-                                            <tooltip>
-                                                <Tooltip text="Import Attendance Report" />
-                                            </tooltip>
-                                            <styleClass>
-                                                <String fx:value="btnnav" />
-                                                <String fx:value="b" />
-                                                <String fx:value="btn-default" />
-                                            </styleClass>
-                                        </JFXButton>
-                                        <JFXButton fx:id="btnAccount" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" maxWidth="399.0" minWidth="0.0"  prefHeight="43.0" prefWidth="399.0" ripplerFill="#1a6ee4" text="Account">
+                                        <JFXButton fx:id="btnImport" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" maxWidth="382.0" minWidth="0.0" onAction="#openImportReportUI" prefHeight="43.0" prefWidth="200.0" ripplerFill="#1a6ee4" text="Import Attendance Report">
+                                        <padding>
+                                            <Insets bottom="10.0" left="20.0" right="10.0" top="15.0" />
+                                        </padding>
+                                        <graphic>
+                                            <FontAwesomeIconView glyphName="TOGGLE_DOWN" styleClass="glymph" text="" />
+                                        </graphic>
+                                        <tooltip>
+                                            <Tooltip text="Import Attendance Report" />
+                                        </tooltip>
+                                        <styleClass>
+                                            <String fx:value="btnnav" />
+                                            <String fx:value="b" />
+                                            <String fx:value="btn-default" />
+                                        </styleClass>
+                                    </JFXButton>
+                                        <JFXButton fx:id="btnAccount" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" maxWidth="399.0" minWidth="0.0" prefHeight="43.0" prefWidth="399.0" ripplerFill="#1a6ee4" text="Account">
                                             <padding>
                                                 <Insets bottom="10.0" left="20.0" right="10.0" top="15.0" />
                                             </padding>
@@ -100,7 +97,7 @@
                                                 <String fx:value="btn-default" />
                                             </styleClass>
                                         </JFXButton>
-                                        <JFXButton fx:id="btnSetting" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" maxWidth="396.0" minWidth="0.0"  prefHeight="43.0" prefWidth="396.0" ripplerFill="#1a6ee4" text="Setting">
+                                        <JFXButton fx:id="btnSetting" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" maxWidth="396.0" minWidth="0.0" prefHeight="43.0" prefWidth="396.0" ripplerFill="#1a6ee4" text="Setting">
                                             <padding>
                                                 <Insets bottom="10.0" left="20.0" right="10.0" top="15.0" />
                                             </padding>
@@ -120,7 +117,7 @@
                                 </VBox>
                                 <AnchorPane prefHeight="61.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                     <children>
-                                        <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" minWidth="0.0"  prefHeight="61.0" prefWidth="200.0" text="Logout" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" minWidth="0.0" prefHeight="61.0" prefWidth="200.0" text="Logout" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
                                             </padding>
@@ -139,7 +136,7 @@
                                 </AnchorPane>
                                 <AnchorPane prefHeight="125.0" prefWidth="236.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
-                                        <JFXButton fx:id="btnhamburger" contentDisplay="CENTER" graphicTextGap="10.0" maxWidth="60.0" onAction="#actionDrawer" minWidth="60.0"  prefHeight="25.0" prefWidth="60.0" text=" " AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <JFXButton fx:id="btnhamburger" contentDisplay="CENTER" graphicTextGap="10.0" maxWidth="60.0" minWidth="60.0" onAction="#actionDrawer" prefHeight="25.0" prefWidth="60.0" text=" " AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
                                             </padding>

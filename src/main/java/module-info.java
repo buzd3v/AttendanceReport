@@ -12,6 +12,7 @@ module demo.demo {
 
     opens demo.demo to javafx.fxml;
     exports demo.demo;
-    opens demo.demo.dashboard;
     opens demo.demo.utilities;
+    opens demo.demo.ImportReport;
+
 }

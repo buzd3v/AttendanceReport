@@ -59,6 +59,7 @@ public class DashboardController implements Initializable {
     //short nav button
     @FXML
     public JFXButton btnhamburger;
+    public AnchorPane paneChangeAttendanceData;
 
     FXMLLoader monthlyReportUILoader;
     FXMLLoader importReportUILoader;
@@ -78,13 +79,12 @@ public class DashboardController implements Initializable {
             paneContent.setDisable(false);
             isOpen = false;
         }
-//        FontAwesomeIcon.
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        initPanes();
-//        paneHome.toFront();
+        initPanes();
+        paneHome.toFront();
     }
     private void setAnchorConstraint(BorderPane borderPane) {
 
@@ -97,10 +97,12 @@ public class DashboardController implements Initializable {
     }
     private void initPanes(){
         try{
-            monthlyReportUILoader = new FXMLLoader(getClass().getResource("/ui/Report_View.fxml"));
-            BorderPane borderPane = (BorderPane) monthlyReportUILoader.load();
-            paneReport.getChildren().setAll(borderPane);
+
+            importReportUILoader = new FXMLLoader(getClass().getResource("/ui/ImportReport_View.fxml"));
+            BorderPane borderPane = (BorderPane) importReportUILoader.load();
+            paneImport.getChildren().setAll(borderPane);
             setAnchorConstraint(borderPane);
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -114,5 +116,7 @@ public class DashboardController implements Initializable {
     }
 
     public void openImportReportUI(ActionEvent actionEvent) {
+        paneImport.toFront();
     }
+
 }
