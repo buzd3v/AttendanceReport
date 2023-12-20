@@ -33,6 +33,8 @@ public class DashboardController implements Initializable {
     public AnchorPane paneReport;
     @FXML
     public AnchorPane paneImport;
+    @FXML
+    public AnchorPane paneChangeReq;
 
     //for future use
     @FXML
@@ -64,6 +66,8 @@ public class DashboardController implements Initializable {
     FXMLLoader importReportUILoader;
 
     boolean isOpen = false;
+    private FXMLLoader changeReqLoader;
+
     public void actionDrawer(ActionEvent actionEvent) {
         if(!isOpen)
         {
@@ -78,13 +82,13 @@ public class DashboardController implements Initializable {
             paneContent.setDisable(false);
             isOpen = false;
         }
-//        FontAwesomeIcon.
+//        FontAwesomeIcon.QUESTION
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        initPanes();
-//        paneHome.toFront();
+        initPanes();
+        paneHome.toFront();
     }
     private void setAnchorConstraint(BorderPane borderPane) {
 
@@ -95,12 +99,27 @@ public class DashboardController implements Initializable {
         AnchorPane.setRightAnchor(borderPane,v);
 
     }
+
+    private void setAnchorConstraint(AnchorPane borderPane) {
+
+        Double v = 0.0;
+        AnchorPane.setTopAnchor(borderPane,v);
+        AnchorPane.setBottomAnchor(borderPane,v);
+        AnchorPane.setLeftAnchor(borderPane,v);
+        AnchorPane.setRightAnchor(borderPane,v);
+
+    }
     private void initPanes(){
         try{
-            monthlyReportUILoader = new FXMLLoader(getClass().getResource("/ui/Report_View.fxml"));
-            BorderPane borderPane = (BorderPane) monthlyReportUILoader.load();
-            paneReport.getChildren().setAll(borderPane);
-            setAnchorConstraint(borderPane);
+//            monthlyReportUILoader = new FXMLLoader(getClass().getResource("/ui/Report_View.fxml"));
+//            BorderPane borderPane = (BorderPane) monthlyReportUILoader.load();
+//            paneReport.getChildren().setAll(borderPane);
+//            setAnchorConstraint(borderPane);
+
+            changeReqLoader = new FXMLLoader(getClass().getResource("ChangeReq.fxml"));
+            AnchorPane anchorPane= (AnchorPane) changeReqLoader.load();
+            paneChangeReq.getChildren().setAll(anchorPane);
+            setAnchorConstraint(anchorPane);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -114,5 +133,9 @@ public class DashboardController implements Initializable {
     }
 
     public void openImportReportUI(ActionEvent actionEvent) {
+    }
+
+    public void ChangeType(ActionEvent actionEvent) {
+        paneChangeReq.toFront();
     }
 }

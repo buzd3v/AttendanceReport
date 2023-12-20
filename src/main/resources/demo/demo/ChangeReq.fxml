@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color:#2771e8" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demo.demo.changeReq.ChangeReqController">
+   <children>
+      <HBox layoutX="43.0" layoutY="52.0" prefHeight="320.0" prefWidth="543.0" spacing="20.0">
+         <children>
+            <VBox prefHeight="320.0" prefWidth="143.0" spacing="70.0">
+               <children>
+                  <ComboBox fx:id="selectType" onAction="#handleComboBoxSelection" prefHeight="25.0" prefWidth="150.0" promptText="Select">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="ADD" />
+                           <String fx:value="EDIT" />
+                           <String fx:value="DELETE" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="https://khoinguonsangtao.vn/wp-content/uploads/2022/07/avatar-gau-cute.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox fx:id="addVBox" managed="false" prefHeight="323.0" prefWidth="373.0" spacing="25.0" visible="false">
+               <children>
+                  <HBox prefHeight="30.0" prefWidth="373.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Ngày:" textAlignment="RIGHT" textFill="WHITE">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <DatePicker fx:id="datePicker" prefHeight="30.0" prefWidth="272.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="53.0" prefWidth="373.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Nhập thông tin:" textAlignment="RIGHT">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="55.0" text="Giờ vào:" textAlignment="RIGHT">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="timeInTextField" prefHeight="30.0" prefWidth="60.0">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="55.0" text="Giờ ra:" textAlignment="RIGHT">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <TextField fx:id="timeOutTextField" prefHeight="30.0" prefWidth="60.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Ghi chú:" textAlignment="RIGHT" textFill="WHITE">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <TextArea fx:id="textArea" prefHeight="100.0" prefWidth="273.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="373.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#confirmAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #0035bd" text="Xác nhận">
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#clearField" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: ce1414" text="Hủy" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="editVBox" managed="false" prefHeight="323.0" prefWidth="373.0" spacing="25.0" visible="false">
+               <children>
+                  <HBox prefHeight="30.0" prefWidth="373.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Ngày:" textAlignment="RIGHT" textFill="WHITE">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <DatePicker fx:id="datePicker2" prefHeight="30.0" prefWidth="272.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="53.0" prefWidth="373.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Nhập thông tin:" textAlignment="RIGHT">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="55.0" text="Giờ vào:" textAlignment="RIGHT">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="timeInTextField2" prefHeight="30.0" prefWidth="60.0">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="55.0" text="Giờ ra:" textAlignment="RIGHT">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <TextField fx:id="timeOutTextField2" prefHeight="30.0" prefWidth="60.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Ghi chú:" textAlignment="RIGHT" textFill="WHITE">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <TextArea fx:id="textArea2" prefHeight="100.0" prefWidth="273.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="373.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#confirmAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #0035bd" text="Xác nhận">
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#clearField" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: ce1414" text="Hủy" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="deleteVBox" managed="false" prefHeight="323.0" prefWidth="373.0" spacing="25.0" visible="false">
+               <children>
+                  <HBox prefHeight="30.0" prefWidth="373.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Ngày:" textAlignment="RIGHT" textFill="WHITE">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <DatePicker fx:id="datePicker3" prefHeight="30.0" prefWidth="272.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="373.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="330.0" text="Bạn có chắc muốn xóa thông tin chấm công ngày này không?" textAlignment="LEFT" wrapText="true">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <CheckBox fx:id="checkBox" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="100.0" text="Ghi chú (nếu có):" textAlignment="RIGHT" wrapText="true">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding></Label>
+                        <TextArea fx:id="textArea3" prefHeight="100.0" prefWidth="273.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="373.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#confirmDelAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #0035bd" text="Xác nhận">
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#clearField" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: ce1414" text="Hủy" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+
+   </children>
+</AnchorPane>
