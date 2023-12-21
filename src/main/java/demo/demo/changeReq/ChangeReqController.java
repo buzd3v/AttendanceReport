@@ -24,19 +24,20 @@ public class ChangeReqController implements Initializable {
     @FXML
     private DatePicker datePicker, datePicker2, datePicker3;
     @FXML
-    private TextField timeInTextField, timeInTextField2, timeInTextField3;
+    private TextField timeInTextField, timeInTextField2;
     @FXML
-    private TextField timeOutTextField, timeOutTextField2, timeOutTextField3;
+    private TextField timeOutTextField, timeOutTextField2;
     @FXML
     private TextArea textArea, textArea2, textArea3;
     @FXML
     private CheckBox checkBox;
+    private ChangeType changeType;
 
-    @FXML
-    public void onChoiceChanged() {
-        String selectedChangeType = selectType.getValue();
-        System.out.println("Bạn đã chọn: " + selectedChangeType);
-    }
+//    @FXML
+//    public void onChoiceChanged() {
+//        String selectedChangeType = selectType.getValue();
+//        System.out.println("Bạn đã chọn: " + selectedChangeType);
+//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,14 +80,17 @@ public class ChangeReqController implements Initializable {
             case "ADD":
                 addVBox.setVisible(true);
                 addVBox.setManaged(true);
+                changeType = new AddChange(datePicker, timeInTextField, timeOutTextField, textArea);
                 break;
             case "EDIT":
                 editVBox.setVisible(true);
                 editVBox.setManaged(true);
+                changeType = new EditChange(datePicker2, timeInTextField2, timeOutTextField2, textArea2);
                 break;
             case "DELETE":
                 deleteVBox.setVisible(true);
                 deleteVBox.setManaged(true);
+                changeType = new DeleteChange(datePicker3, checkBox, textArea3);
                 break;
             default:
                 break;
@@ -94,21 +98,8 @@ public class ChangeReqController implements Initializable {
     }
     @FXML
     private void confirmAction() {
-        LocalDate selectedDate = datePicker.getValue();
-        String timeIn = timeInTextField.getText().trim();
-        String timeOut = timeOutTextField.getText().trim();
-        if(selectedDate != null && !timeIn.isEmpty() && !timeOut.isEmpty()) {
-            showSuccessAlert();
-        } else {
-            showWarningAlert("Vui lòng điền đầy đủ thông tin.");
-        }
-    }
-    @FXML
-    private void confirmDelAction() {
-        LocalDate selectedDate = datePicker3.getValue();
-        boolean isCheckBoxSelected = checkBox.isSelected();
-
-        if(selectedDate != null && isCheckBoxSelected) {
+        if(changeType != null && changeType.validateInput()) {
+            changeType.processChange();
             showSuccessAlert();
         } else {
             showWarningAlert("Vui lòng điền đầy đủ thông tin.");
@@ -120,7 +111,7 @@ public class ChangeReqController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("Gửi yêu cầu thành công!");
         alert.showAndWait();
-        clearField();
+        changeType.clearField();
     }
     private void showWarningAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -131,10 +122,6 @@ public class ChangeReqController implements Initializable {
     }
     @FXML
     private void clearField() {
-        textArea.clear(); textArea2.clear(); textArea3.clear();
-        timeInTextField.clear(); timeInTextField2.clear();
-        timeOutTextField.clear(); timeOutTextField2.clear();
-        datePicker.setValue(null); datePicker2.setValue(null); datePicker3.setValue(null);
-        checkBox.setSelected(false);
+        changeType.clearField();
     }
 }

@@ -176,7 +176,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="373.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#confirmDelAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #0035bd" text="Xác nhận">
+                        <Button mnemonicParsing="false" onAction="#confirmAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #0035bd" text="Xác nhận">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>

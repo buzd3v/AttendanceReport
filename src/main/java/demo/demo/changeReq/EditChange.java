@@ -4,11 +4,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class AddChange implements ChangeType {
+public class EditChange implements ChangeType{
     private DatePicker datePicker;
     private TextField timeInTextField, timeOutTextField;
     private TextArea textArea;
-    public AddChange(DatePicker datePicker, TextField timeInTextField, TextField timeOutTextField, TextArea textArea) {
+    public EditChange(DatePicker datePicker, TextField timeInTextField, TextField timeOutTextField, TextArea textArea) {
         this.datePicker = datePicker;
         this.timeInTextField = timeInTextField;
         this.timeOutTextField = timeOutTextField;
@@ -16,7 +16,7 @@ public class AddChange implements ChangeType {
     }
     @Override
     public void processChange() {
-        //Xử lý các hành động Add
+        //Xử lý các hành động Edit
     }
     @Override
     public boolean validateInput() {
