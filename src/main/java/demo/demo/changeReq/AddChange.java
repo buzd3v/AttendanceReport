@@ -16,7 +16,7 @@ public class AddChange implements ChangeType {
     }
     @Override
     public void processChange() {
-        //Xử lý các hành động Add
+
     }
     @Override
     public boolean validateInput() {

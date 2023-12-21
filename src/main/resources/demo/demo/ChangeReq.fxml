@@ -7,7 +7,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color:#2771e8" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demo.demo.changeReq.ChangeReqController">
+<?import javafx.scene.shape.Rectangle?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color:#F0F0F0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demo.demo.changeReq.ChangeReqController">
    <children>
       <HBox layoutX="43.0" layoutY="52.0" prefHeight="320.0" prefWidth="543.0" spacing="20.0">
          <children>
@@ -22,14 +23,18 @@
                         </FXCollections>
                      </items>
                   </ComboBox>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="https://khoinguonsangtao.vn/wp-content/uploads/2022/07/avatar-gau-cute.jpg" />
-                     </image>
-                  </ImageView>
+                  <StackPane>
+                     <Rectangle width="150.0" height="150.0" arcWidth="10.0" arcHeight="10.0" stroke="BLACK" strokeWidth="2.0" />
+                     <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="https://khoinguonsangtao.vn/wp-content/uploads/2022/07/avatar-gau-cute.jpg" />
+                        </image>
+                     </ImageView>
+                  </StackPane>
+
                </children>
             </VBox>
-            <VBox fx:id="addVBox" managed="false" prefHeight="323.0" prefWidth="373.0" spacing="25.0" visible="false">
+            <VBox fx:id="addVBox" managed="true" prefHeight="323.0" prefWidth="373.0" spacing="25.0" visible="false">
                <children>
                   <HBox prefHeight="30.0" prefWidth="373.0">
                      <children>
