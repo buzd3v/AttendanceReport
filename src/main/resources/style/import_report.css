@@ -1,0 +1,159 @@
+.glyph {
+    -fx-fill: #FF0000;
+}
+
+.text {
+    -fx-start-margin: 500;
+    -fx-font-family: "Arial";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16;
+}
+
+.text_field {
+    -fx-background-radius: 20;
+    -fx-pref-height: 30;
+    -fx-pref-width: 300;
+    -fx-background-color: #cacaca;
+    -fx-text-fill: #000000;
+    /*-fx-border-color: #e7dede;*/
+    -fx-effect: dropshadow(one-pass-box, #e7dede, 5, 1, 1, 1);
+}
+
+.menu {
+    -fx-background-color: rgba(23, 187, 250, 0.47);
+    -fx-progress-color: rgba(23, 187, 250, 0.47);
+    -fx-background-radius: 40;
+    -fx-border-color: transparent;
+    -fx-pref-height: 30;
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.item {
+    -fx-background-color: rgba(23, 187, 250, 0.47);
+}
+
+/*combobox css*/
+
+.combo-box .list-cell {
+    -fx-background: rgba(23, 187, 250, 0.47);
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-padding: 3 0 2 7;
+    -fx-cell-size: 1.66667em;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: transparent, transparent;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 8, 0.0, 0, 0);
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-padding: 4 0 4 5;
+    -fx-background-radius: 10;
+
+    /* No alternate highlighting */
+    -fx-background-color: rgba(23, 187, 250, 0.47);
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover {
+    -fx-background: rgba(23, 187, 250, 0.47);
+    -fx-background-color: rgba(23, 187, 250, 0.47);
+    -fx-text-fill: rgba(23, 187, 250, 0.47);
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: rgba(23, 187, 250, 0.47);
+    -fx-text-fill: -fx-text-inner-color;
+}
+
+.combo-box-base {
+    -fx-background-color: rgba(23, 187, 250, 0.47);
+    -fx-background-radius: 40;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-padding: 0;
+}
+
+.combo-box-base:hover {
+    -fx-color: -fx-hover-base;
+}
+
+.combo-box-base:showing {
+    -fx-color: rgba(23, 187, 250, 0.47);
+}
+
+.combo-box-base:focused {
+    -fx-background-color: rgba(23, 187, 250, 0.47);
+    -fx-background-radius: 40;
+    -fx-background-insets: -1.4, 0, 1, 2;
+}
+
+.combo-box-base:disabled {
+    -fx-opacity: .4;
+}
+
+/*jfx table*/
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #0e0e0e;
+    -fx-border-radius: 20;
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 20;
+    -fx-border-color: #0e0e0e;
+
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #0e0e0e;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-radius: 20;
+}
+
+.table-view .cell {
+    -fx-cell-size: 35;
+    -fx-boder-radius: 20;
+    -fx-alignment: center-left;
+    -fx-background-color: #fdfdfd;
+    -fx-border-color: #0e0e0e;
+    -fx-text-fill: #0e0e0e;
+    -fx-alignment: CENTER_LEFT;
+
+}
+
+.table-row-cell:selected {
+    -fx-background-color: whitesmoke;
+    -fx-text-background-color: #6622CC;
+}
+
+/* scroll bar starts here */
+
+/* The increment and decrement button CSS class of scrollbar */
+.table-view .increment-button, .table-view .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 2em;
+
+}
+
+/* The main scrollbar **track** CSS class  */
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: derive(#6622CC, 80%);
+
+    -fx-background-radius: 2em;
+    -fx-border-radius: 2em;
+}
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: derive(#6622CC, 90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+
+}

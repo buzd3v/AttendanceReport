@@ -1,6 +1,6 @@
 package demo.demo.changeReq;
 
-import demo.demo.database.databaseConnector;
+import demo.demo.DB.DatabaseSingleton;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -22,9 +22,10 @@ public class AddChange implements ChangeType {
     }
     @Override
     public void processChange() {
-
-        try (Connection connection = databaseConnector.connect()) {
-            String sql = "SELECT * FROM request_timekeeping_information";
+        try (Connection connection = DatabaseSingleton.getInstance().getConnection()) {
+            String sql = "INSERT INTO request_timekeeping_information (id, staff_id, date, description, status)" +
+                    "VALUES (1, 123," + datePicker.getValue() + ", thêm thông tin: từ" +timeInTextField.getText()+
+                    " đến " + timeOutTextField.getText() + "ghi chú: " + textArea.getText() +", '0')";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
         } catch (SQLException e) {

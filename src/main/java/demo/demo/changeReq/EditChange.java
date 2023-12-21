@@ -1,8 +1,14 @@
 package demo.demo.changeReq;
 
+import demo.demo.DB.DatabaseSingleton;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class EditChange implements ChangeType{
     private DatePicker datePicker;
@@ -16,7 +22,15 @@ public class EditChange implements ChangeType{
     }
     @Override
     public void processChange() {
-        //Xử lý các hành động Edit
+        try (Connection connection = DatabaseSingleton.getInstance().getConnection()) {
+            String sql = "INSERT INTO request_timekeeping_information (id, staff_id, date, description, status)" +
+                    "VALUES (1, 123," + datePicker.getValue() + ", sửa thông tin: từ" +timeInTextField.getText()+" đến "
+                    + timeOutTextField.getText() +"ghi chú: " + textArea.getText() + ", '0')";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public boolean validateInput() {

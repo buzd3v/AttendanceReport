@@ -1,14 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
+<?import javafx.scene.text.Text?>
+<?import java.lang.*?>
+<AnchorPane fx:id="mainPane" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="demo.demo.ImportReport.ImportReportController"
-            prefHeight="400.0" prefWidth="600.0">
+            minHeight="650.0" minWidth="802.0" prefHeight="1080" prefWidth="1920"
+            style="-fx-background-color: #fdfdfd">
 
+    <VBox fx:id="importPane" style="-fx-background-color: #ffffff" alignment="CENTER">
+        <VBox>
+            <HBox spacing="10">
+                <ComboBox fx:id="empType" prefWidth="200" promptText="type"/>
+                <DatePicker promptText="From" fx:id="startDatePicker"/>
+                <DatePicker promptText="To" fx:id="endDatePicker"/>
+                <VBox.margin>
+                    <Insets top="20" left="30"/>
+                </VBox.margin>
+            </HBox>
+            <HBox spacing="10">
+                <Label HBox.hgrow="ALWAYS">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="CIRCLE_ALT" size="14" styleClass="glyph"/>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets top="3"/>
+                    </HBox.margin>
+                </Label>
+                <Text HBox.hgrow="ALWAYS"
+                      styleClass="text">
+                    Import du lieu vao cua
+                </Text>
+                <VBox.margin>
+                    <Insets top="20" left="30"/>
+                </VBox.margin>
+            </HBox>
+            <HBox spacing="30">
+                <TextField fx:id="inTextField" promptText="file name" styleClass="text_field"/>
+                <Button style="-fx-background-radius: 40 ;-fx-border-color: transparent" prefHeight="30"
+                        onAction="#chooseInFile">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="ARCHIVE" size="12"
+                                             styleClass="glymph"/>
+                    </graphic>
+                    <styleClass>
+                        <String fx:value="btn"/>
+                        <String fx:value="btn-sm"/>
+                        <String fx:value="btn-primary"/>
+                    </styleClass>
+                </Button>
+                <VBox.margin>
+                    <Insets top="20" left="30"/>
+                </VBox.margin>
+            </HBox>
+            <HBox spacing="10">
+                <Label HBox.hgrow="ALWAYS">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="CIRCLE_ALT" size="14" styleClass="glyph"/>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets top="3"/>
+                    </HBox.margin>
+                </Label>
+                <Text HBox.hgrow="ALWAYS"
+                      styleClass="text">
+                    Import du lieu ra cua
+                </Text>
+                <VBox.margin>
+                    <Insets top="20" left="30"/>
+                </VBox.margin>
+            </HBox>
+            <HBox spacing="30">
+                <TextField fx:id="outTextField" promptText="file name" styleClass="text_field"/>
+                <Button onAction="#chooseOutFile" style="-fx-background-radius: 40 ;-fx-border-color: transparent"
+                        prefHeight="30">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="ARCHIVE" size="12"
+                                             styleClass="glymph"/>
+                    </graphic>
+                    <styleClass>
+                        <String fx:value="btn"/>
+                        <String fx:value="btn-sm"/>
+                        <String fx:value="btn-primary"/>
+                    </styleClass>
+                </Button>
+                <VBox.margin>
+                    <Insets top="20" left="30"/>
+                </VBox.margin>
+            </HBox>
+            <HBox spacing="30">
+                <Button fx:id="convertBtn" style="-fx-background-radius: 40 ;-fx-border-color: transparent"
+                        prefHeight="30"
+                        onAction="#convert"
+                        text="Convert">
+                    <styleClass>
+                        <String fx:value="btn"/>
+                        <String fx:value="btn-sm"/>
+                        <String fx:value="btn-primary"/>
+                    </styleClass>
+                </Button>
+                <Button fx:id="acceptBtn" style="-fx-background-radius: 40 ;-fx-border-color: transparent"
+                        prefHeight="30"
+                        text="Accept" onAction="#accept">
+                    <styleClass>
+                        <String fx:value="btn"/>
+                        <String fx:value="btn-sm"/>
+                        <String fx:value="btn-success"/>
+                    </styleClass>
+                </Button>
+                <Button fx:id="cancelBtn" style="-fx-background-radius: 40 ;-fx-border-color: transparent"
+                        prefHeight="30"
+                        onAction="#cancel"
+                        text="Cancel">
+                    <styleClass>
+                        <String fx:value="btn"/>
+                        <String fx:value="btn-sm"/>
+                        <String fx:value="btn-danger"/>
+                    </styleClass>
+                </Button>
+                <VBox.margin>
+                    <Insets top="20" left="30"/>
+                </VBox.margin>
+            </HBox>
+        </VBox>
+    </VBox>
+    <AnchorPane fx:id="logPane"
+                style="-fx-background-color: #FFFFFF">
+        <TableView fx:id="logView" prefWidth="600" prefHeight="600" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0"
+                   AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0">
+            <columns>
+                <TableColumn fx:id="ErrorCol" text="Error ID" prefWidth="150"/>
+                <TableColumn fx:id="DetailCol" text="Detail" prefWidth="400"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </AnchorPane>
+    <AnchorPane fx:id="resultPane"
+                style="-fx-background-color: #FFFFFF">
+        <StackPane fx:id="viewStackPane" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0"
+                   AnchorPane.leftAnchor="0"
+                   AnchorPane.topAnchor="0">
+            <TableView fx:id="workersResultView" prefWidth="600" prefHeight="600" AnchorPane.rightAnchor="0"
+                       AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                       AnchorPane.topAnchor="0" style="-fx-text-fill: #000">
+                <columns>
+                    <TableColumn fx:id="workerIDCol" text="Worker" prefWidth="100" minWidth="100"/>
+                    <TableColumn fx:id="dayWorkerCol" text="Day" prefWidth="100" minWidth="100"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+            <TableView fx:id="officersResultView" prefWidth="600" prefHeight="600">
+                <columns>
+                    <TableColumn fx:id="officerIDCol" text="Officer" prefWidth="100" minWidth="100"/>
+                    <TableColumn fx:id="dayOfficerCol" text="Day" prefWidth="200" minWidth="200"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </StackPane>
+    </AnchorPane>
 </AnchorPane>

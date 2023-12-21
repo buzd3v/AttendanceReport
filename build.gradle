@@ -43,9 +43,12 @@ dependencies {
     implementation( 'com.jfoenix:jfoenix:9.0.10')
     implementation 'org.testng:testng:7.1.0'
     implementation 'mysql:mysql-connector-java:8.0.28'
+    implementation('com.jfoenix:jfoenix:9.0.10')
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation "de.jensd:fontawesomefx-fontawesome:4.7.0-9.1.2"
+    implementation 'org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0'
+    implementation 'com.opencsv:opencsv:5.9'
 }
 
 test {

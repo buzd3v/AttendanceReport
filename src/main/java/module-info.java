@@ -10,10 +10,15 @@ module demo.demo {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires com.opencsv;
 
     opens demo.demo to javafx.fxml;
     exports demo.demo;
-//    opens demo.demo.dashboard;
     opens demo.demo.utilities;
     opens demo.demo.changeReq;
+    opens demo.demo.ImportReport;
+    opens demo.demo.ImportReport.Employee;
+    opens demo.demo.ImportReport.Error;
+    opens demo.demo.ImportReport.FileHandler;
+    opens demo.demo.DB;
 }
