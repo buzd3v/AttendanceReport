@@ -1,13 +1,11 @@
 package demo.demo;
 
 import com.jfoenix.controls.JFXButton;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -65,15 +63,14 @@ public class DashboardController implements Initializable {
     FXMLLoader importReportUILoader;
 
     boolean isOpen = false;
+
     public void actionDrawer(ActionEvent actionEvent) {
-        if(!isOpen)
-        {
+        if (!isOpen) {
             paneShortNav.setPrefWidth(250);
-            paneContent.setEffect(new BoxBlur(2,2,1));
+            paneContent.setEffect(new BoxBlur(2, 2, 1));
             paneContent.setDisable(true);
             isOpen = true;
-        }
-        else{
+        } else {
             paneShortNav.setPrefWidth(60);
             paneContent.setEffect(null);
             paneContent.setDisable(false);
@@ -86,23 +83,37 @@ public class DashboardController implements Initializable {
         initPanes();
         paneHome.toFront();
     }
-    private void setAnchorConstraint(BorderPane borderPane) {
 
+    private <T> void setAnchorConstraint(T pane) {
         Double v = 0.0;
-        AnchorPane.setTopAnchor(borderPane,v);
-        AnchorPane.setBottomAnchor(borderPane,v);
-        AnchorPane.setLeftAnchor(borderPane,v);
-        AnchorPane.setRightAnchor(borderPane,v);
-
+        AnchorPane.setTopAnchor((Node) pane, v);
+        AnchorPane.setBottomAnchor((Node) pane, v);
+        AnchorPane.setLeftAnchor((Node) pane, v);
+        AnchorPane.setRightAnchor((Node) pane, v);
     }
-    private void initPanes(){
-        try{
+
+    private void setAnchorConstraint(AnchorPane pane) {
+        Double v = 0.0;
+        AnchorPane.setTopAnchor(pane, v);
+        AnchorPane.setBottomAnchor(pane, v);
+        AnchorPane.setLeftAnchor(pane, v);
+        AnchorPane.setRightAnchor(pane, v);
+    }
+
+    private void initPanes() {
+        try {
 
             importReportUILoader = new FXMLLoader(getClass().getResource("/ui/ImportReport_View.fxml"));
-            BorderPane borderPane = (BorderPane) importReportUILoader.load();
-            paneImport.getChildren().setAll(borderPane);
-            setAnchorConstraint(borderPane);
+            AnchorPane Pane = importReportUILoader.load();
+            paneImport.getChildren().setAll(Pane);
+            this.setAnchorConstraint(Pane);
 
+            monthlyReportUILoader = new FXMLLoader(getClass().getResource("/ui/Report_View.fxml"));
+            StackPane stackPane = monthlyReportUILoader.load();
+            paneReport.getChildren().setAll(stackPane);
+            setAnchorConstraint(stackPane);
+
+//            FontAwesomeIcon.
 
         } catch (IOException e) {
             e.printStackTrace();
