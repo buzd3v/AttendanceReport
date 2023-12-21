@@ -8,7 +8,7 @@
 }
 
 .label{
-    -fx-text-fill: lightgray;;
+    -fx-text-fill: black;
 }
 
 .separator *.line {

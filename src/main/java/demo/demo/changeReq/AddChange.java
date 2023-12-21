@@ -1,8 +1,14 @@
 package demo.demo.changeReq;
 
+import demo.demo.database.databaseConnector;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class AddChange implements ChangeType {
     private DatePicker datePicker;
@@ -17,6 +23,13 @@ public class AddChange implements ChangeType {
     @Override
     public void processChange() {
 
+        try (Connection connection = databaseConnector.connect()) {
+            String sql = "SELECT * FROM request_timekeeping_information";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public boolean validateInput() {
