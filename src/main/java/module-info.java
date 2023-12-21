@@ -21,4 +21,5 @@ module demo.demo {
     opens demo.demo.ImportReport.Error;
     opens demo.demo.ImportReport.FileHandler;
     opens demo.demo.DB;
+    opens demo.demo.report;
 }
