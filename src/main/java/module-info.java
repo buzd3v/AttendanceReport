@@ -11,8 +11,10 @@ module demo.demo {
     requires org.kordamp.bootstrapfx.core;
 
     opens demo.demo to javafx.fxml;
+
     exports demo.demo;
 //    opens demo.demo.dashboard;
     opens demo.demo.utilities;
     opens demo.demo.changeReq;
+    opens demo.demo.BaocaoChiTiet;
 }

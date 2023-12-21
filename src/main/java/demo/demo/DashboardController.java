@@ -30,11 +30,13 @@ public class DashboardController implements Initializable {
     @FXML
     public ImageView imgHome;
     @FXML
-    public AnchorPane paneReport;
-    @FXML
-    public AnchorPane paneImport;
+    public AnchorPane paneBaoCaoThang;
+
     @FXML
     public AnchorPane paneChangeReq;
+
+    @FXML
+    public AnchorPane paneBaoCaoChiTiet;
 
     //for future use
     @FXML
@@ -52,6 +54,11 @@ public class DashboardController implements Initializable {
     @FXML
     public JFXButton btnImport;
 
+    @FXML
+    public JFXButton btnBaoCaoThang;
+    @FXML
+    public JFXButton btnBaoCaoChiTiet;
+
     //for future use
     @FXML
     public JFXButton btnAccount;
@@ -67,6 +74,7 @@ public class DashboardController implements Initializable {
 
     boolean isOpen = false;
     private FXMLLoader changeReqLoader;
+    private FXMLLoader changeBaoCaoChiTietLoader;
 
     public void actionDrawer(ActionEvent actionEvent) {
         if(!isOpen)
@@ -111,7 +119,7 @@ public class DashboardController implements Initializable {
     }
     private void initPanes(){
         try{
-//            monthlyReportUILoader = new FXMLLoader(getClass().getResource("/ui/Report_View.fxml"));
+//            monthlyReportUILoader = new FXMLLoader(getClass().getResource("Report_View.fxml"));
 //            BorderPane borderPane = (BorderPane) monthlyReportUILoader.load();
 //            paneReport.getChildren().setAll(borderPane);
 //            setAnchorConstraint(borderPane);
@@ -121,18 +129,24 @@ public class DashboardController implements Initializable {
             paneChangeReq.getChildren().setAll(anchorPane);
             setAnchorConstraint(anchorPane);
 
+            changeBaoCaoChiTietLoader = new FXMLLoader(getClass().getResource("BaocaoChiTiet.fxml"));
+            AnchorPane anchorPane1= (AnchorPane) changeBaoCaoChiTietLoader.load();
+            paneBaoCaoChiTiet.getChildren().setAll(anchorPane1);
+            setAnchorConstraint(anchorPane1);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-    public void openMonthlyReportUI(ActionEvent actionEvent) {
-        paneReport.toFront();
 
+
+    public void openBaoCaoChiTiet(ActionEvent actionEvent) {
+        paneBaoCaoChiTiet.toFront();
     }
+    public void openBaoCaoThang(ActionEvent actionEvent){
 
-    public void openImportReportUI(ActionEvent actionEvent) {
     }
 
     public void ChangeType(ActionEvent actionEvent) {

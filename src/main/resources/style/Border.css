@@ -1,0 +1,14 @@
+/* styles.css */
+
+.bordered-pane {
+    -fx-border-color: #FFE382; /* Màu viền */
+    -fx-border-width: 0.5;     /* Độ dày của viền */
+
+}
+
+/* styles.css */
+
+.shadowed-pane {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+}
+

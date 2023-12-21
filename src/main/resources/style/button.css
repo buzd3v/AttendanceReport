@@ -1,0 +1,13 @@
+/* styles.css */
+
+.button-export {
+    -fx-background-color: #EF4040; /* Màu nền của nút */
+    -fx-text-fill: white; /* Màu chữ của nút */
+    -fx-font-size: 14px; /* Kích thước chữ */
+    -fx-font-weight: bold; /* Chữ đậm */
+    -fx-padding: 8px 16px; /* Kích thước padding (top/right/bottom/left) */
+}
+
+.button-export:hover {
+    -fx-background-color: #27ae60; /* Màu nền của nút khi di chuột qua */
+}

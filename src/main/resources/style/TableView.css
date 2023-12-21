@@ -1,0 +1,43 @@
+/* Styling for TableView */
+.table-view {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Styling for TableView columns header */
+.table-view .column-header-background {
+    -fx-background-color: #2a2a2a;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-text-fill: #ffffff;
+}
+
+/* Styling for TableView rows */
+.table-row-cell:odd {
+    -fx-background-color: #d3d3d3;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #e8e8e8;
+}
+
+/* Styling for selected rows */
+.table-row-cell:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+/* Styling for TableView cell borders */
+.table-row-cell,
+.table-cell {
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+}
+
+/* Styling for text color in TableView cells */
+.table-row-cell,
+.table-cell {
+    -fx-text-fill: #333333; /* Màu văn bản cho các ô trong TableView */
+}
