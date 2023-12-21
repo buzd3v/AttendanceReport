@@ -108,10 +108,10 @@ public class DashboardController implements Initializable {
             paneImport.getChildren().setAll(Pane);
             this.setAnchorConstraint(Pane);
 
-            monthlyReportUILoader = new FXMLLoader(getClass().getResource("/ui/Report_View.fxml"));
-            StackPane stackPane = monthlyReportUILoader.load();
-            paneReport.getChildren().setAll(stackPane);
-            setAnchorConstraint(stackPane);
+            monthlyReportUILoader = new FXMLLoader(getClass().getResource("Report_View.fxml"));
+            AnchorPane anchorPaneReport= (AnchorPane) monthlyReportUILoader.load();
+            paneReport.getChildren().setAll(anchorPaneReport);
+            setAnchorConstraint(anchorPaneReport);
 
 //            FontAwesomeIcon.
 
